@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>西安好耶前端在线IDE alpha </title>
+<link href="bootstrap.css" rel="stylesheet">
+<link href="prettify.css" rel="stylesheet">
+<style type="text/css" media="screen">
+*{
+margin:0;
+}
+body,html {
+    overflow: hidden;
+    font-size:16px;
+}
+
+#editor1 {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 50%;
+    padding:0;
+}
+#editor2 {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    padding:0;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <form>
+<pre id="editor1"></pre>
+<pre id="editor2"></pre>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="prettify.js"></script>
+<script src="ace/build/src/ace-noconflict.js" type="text/javascript" charset="utf-8"></script>
+<script src="ace/build/src/theme-twilight-noconflict.js" type="text/javascript" charset="utf-8"></script>
+<script src="ace/build/src/mode-javascript-noconflict.js" type="text/javascript" charset="utf-8"></script>
+<script>
+$(function () { prettyPrint() });
+$(function(){
+    var editor1 = ace.edit("editor1");
+    editor1.setTheme("ace/theme/twilight");
+    var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
+    editor1.getSession().setMode(new JavaScriptMode());
+    editor1.setShowInvisibles(true);
+    editor1.setFontSize('12px');
+    
+    var editor2 = ace.edit("editor2");
+    editor2.setTheme("ace/theme/twilight");
+    var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
+    editor2.getSession().setMode(new JavaScriptMode());
+    editor2.setShowInvisibles(true);
+    editor2.setFontSize('12px');
+});
+
+</script>
+
+    </form>
+    </div>
+</body>
+</html>
